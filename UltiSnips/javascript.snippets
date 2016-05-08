@@ -1,0 +1,154 @@
+###################
+# Ava
+###################
+snippet ava "AVA" b
+import test from 'ava';
+import $1 from '$2';
+
+test('${3:title}', t => {
+	t.is($1(), '$4');
+});
+$0
+endsnippet
+
+snippet import-ava "Import AVA" b
+import test from 'ava';
+$0
+endsnippet
+
+snippet test "Test" b
+test('${1:title}', t => {
+	$2
+});
+$0
+endsnippet
+
+snippet test-async "Test - Async" b
+test('${1:title}', async t => {
+	$2
+});
+$0
+endsnippet
+
+snippet test-serial "Test - Serial" b
+test.serial('${1:title}', t => {
+	$2
+});
+$0
+endsnippet
+
+snippet test-cb "Test - Cb" b
+test.cb('${1:title}', t => {
+	$2
+	t.end()
+});
+$0
+endsnippet
+
+snippet test-only "Test - Only" b
+test.only('${1:title}', t => {
+	$2
+});
+$0
+endsnippet
+
+snippet test-skip "Test - Skip" b
+test.skip('${1:title}', t => {
+	$2
+});
+$0
+endsnippet
+
+snippet test-todo "Test - Todo" b
+test.todo('${1:title}');
+endsnippet
+
+snippet before-hook "Before hook" b
+test.before(t => {
+	$1
+});
+$0
+endsnippet
+
+snippet after-hook "After hook" b
+test.after(t => {
+	$1
+});
+$0
+endsnippet
+
+snippet before-each-hook "Before each hook" b
+test.beforeEach(t => {
+	$1
+});
+$0
+endsnippet
+
+snippet after-each-hook "After each hook" b
+test.afterEach(t => {
+	$1
+});
+$0
+endsnippet
+
+
+###################
+# Ava Assertions
+###################
+
+snippet t.pass "t.pass()" b
+t.pass(${1:'${2:message}'});
+endsnippet
+
+snippet t.fail "t.fail()" b
+t.fail(${1:'${2:message}'});
+endsnippet
+
+snippet t.truthy "t.truthy()" b
+t.truthy(${1:value}${2:, '${3:message}'});
+endsnippet
+
+snippet t.falsy "t.falsy()" b
+t.falsy(${1:value}${2:, '${3:message}'});
+endsnippet
+
+snippet t.true "t.true()" b
+t.true(${1:value}${2:, '${3:message}'});
+endsnippet
+
+snippet t.false "t.false()" b
+t.false(${1:value}${2:, '${3:message}'});
+endsnippet
+
+snippet t.is "t.is()" b
+t.is(${1:value ${2:expected}${3:, '${4:message}'});
+endsnippet
+
+snippet t.not "t.not()" b
+t.not(${1:value ${2:expected}${3:, '${4:message}'});
+endsnippet
+
+snippet t.deepEqual "t.deepEqual()" b
+t.deepEqual(${1:value ${2:expected}${3:, '${4:message}'});
+endsnippet
+
+snippet t.notDeepEqual "t.notDeepEqual()" b
+t.notDeepEqual(${1:value ${2:expected}${3:, '${4:message}'});
+endsnippet
+
+snippet t.throws "t.throws()" b
+t.throws(${1:function|promise}${2:, ${3:expected}${4:, '${5:message}'}});
+endsnippet
+
+snippet t.notThrows "t.notThrows()" b
+t.notThrows(${1:function|promise}${2:, '${3:message}'});
+endsnippet
+
+snippet t.regex "t.regex()" b
+t.regex(${1:contents ${2:regex}${3:, '${4:message}'});
+endsnippet
+
+snippet t.ifError "t.ifError()" b
+t.ifError(${1:error}${2:, '${3:message}'});
+endsnippet
+
